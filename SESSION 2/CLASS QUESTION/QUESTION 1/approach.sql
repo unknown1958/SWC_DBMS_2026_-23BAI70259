@@ -1,0 +1,27 @@
+drop table books
+-- Create Table
+CREATE TABLE Books (
+    BOOK_ID INT PRIMARY KEY,
+    BOOK_CODE VARCHAR(50)
+);
+
+-- Insert Data
+INSERT INTO Books (BOOK_ID, BOOK_CODE) VALUES
+(1, 'NOVEL-HARRY'),
+(2, 'STORY-MOANA'),
+(3, 'POEM-RIVER');
+
+
+
+Solution-
+
+-- Approach 1
+
+SELECT SPLIT_PART(BOOK_CODE,'-',2) AS BOOK_TITLE
+FROM BOOKS
+
+
+-- Approach 2
+
+SELECT SUBSTRING(BOOK_CODE,POSITION('-' IN BOOK_CODE)+1)
+FROM BOOKS
